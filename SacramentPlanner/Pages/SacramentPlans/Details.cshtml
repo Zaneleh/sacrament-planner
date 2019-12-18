@@ -1,0 +1,92 @@
+﻿@page
+@model SacramentPlanner.Pages.SacramentPlans.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SacramentPlan.SacramentPlanID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+<h1 style="text-align:center;font-family:Tangerine,cursive; font-weight:bold; font-size:4.5em;">Sacrament Meeting</h1>
+<div style="text-align:center;">
+   
+@Html.DisplayFor(model => model.SacramentPlan.Date)
+</div>
+
+
+<div style="margin-left:34%; ">
+
+    <hr />
+
+    <dl class="dl-horizontal">
+
+       
+
+        <dd style="padding-bottom:30px">
+
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacramentPlan.Conducting)
+        </dt>
+        <dd style="padding-bottom:30px">
+            @Html.DisplayFor(model => model.SacramentPlan.Conducting)
+        </dd>
+        <p style="margin-left:17%; padding-bottom:20px"><b>Announcements</b></p>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacramentPlan.OpeningHymn)
+        </dt>
+        <dd style="padding-bottom:30px">
+            @Html.DisplayFor(model => model.SacramentPlan.OpeningHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacramentPlan.Invocation)
+        </dt>
+        <dd style="padding-bottom:30px">
+            @Html.DisplayFor(model => model.SacramentPlan.Invocation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacramentPlan.SacramentHymn)
+        </dt>
+        <dd style="padding-bottom:30px">
+            @Html.DisplayFor(model => model.SacramentPlan.SacramentHymn)
+        </dd>
+        <p style="margin-left:11%; padding-bottom:20px"><b>Administration of the Sacrament</b></p>
+
+        @if (Model.SacramentPlan.IntermediateHymn != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.SacramentPlan.IntermediateHymn)
+            </dt>
+            <dd style="padding-bottom:30px">
+                @Html.DisplayFor(model => model.SacramentPlan.IntermediateHymn)
+            </dd>
+        }
+        <!-- Add speakers here! -->
+        @foreach (var speaker in Model.Speakers)
+        {
+            <dt>Speaker</dt>
+            <dd style="padding-bottom:30px;">
+                @speaker.Name
+            </dd>
+        }
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.SacramentPlan.ClosingHymn)
+        </dt>
+        <dd style="padding-bottom:30px">
+            @Html.DisplayFor(model => model.SacramentPlan.ClosingHymn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SacramentPlan.Benediction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SacramentPlan.Benediction)
+        </dd>
+
+    </dl>
+</div>
+
